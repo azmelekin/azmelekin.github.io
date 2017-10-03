@@ -55,7 +55,7 @@ html {
 
 .sidebar {
   text-align: center;
-  padding: 2rem 1rem;	/*changed these from 2rem 1rem to 0rem 1rem */
+  padding: 0rem 1rem;	/*changed these from 2rem 1rem to 0rem 1rem */
   color: rgba(255,255,255,.5);
   background-color: #202020;
   overflow: hidden;
@@ -78,7 +78,7 @@ html {
   }
 }
 
-
+/*
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
@@ -90,7 +90,7 @@ html {
 	overflow-y: scroll;
 	
   }
-}
+}*/
 
 /*new*/
 @media (min-width: 48rem) {
@@ -107,16 +107,15 @@ html {
   .sidebar-logo {
       float:center;
       padding-left: 20px;
-	  padding-right: 20px;
       padding-top: 5px;
-      padding-bottom: 0px;
+      padding-bottom: 5px;
     }
 	
   #contact-list {
-      float:center;
-      padding-left: 0px;
-      padding-top : 0px;
-      padding-bottom: 0px;
+      float:left;
+      padding-left: 50px;
+      padding-top : -5px;
+      padding-bottom: 5px;
 	  
     }
 }
@@ -144,9 +143,9 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
+  /*font-family: "Abril Fatface", serif;
   /*added these*/
- /* font-family: 'Monofett', cursive;*/
+  font-family: 'Monofett', cursive;
   /*font-family: 'Codystar', cursive;*/
   /*font-family: 'Faster One', cursive;
   /*font-family: 'Corben', cursive;*/

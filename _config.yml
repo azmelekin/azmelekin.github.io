@@ -19,8 +19,6 @@ twitter_username:   AmanDmam
 github_username:    swala
 
 gravatar_md5: bdc47572bf329aace9009b582c9f780e
-
-
 paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]
 # Custom vars
