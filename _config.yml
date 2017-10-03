@@ -10,8 +10,8 @@ permalink:        pretty
 title:            Hyde
 tagline:          'A Jekyll theme'
 description:      'A brazen two-column' 
-url:              
-baseurl:          
+url:              http://swala.github.io
+baseurl:          /
 
 author:
   name:           'manuel'
@@ -19,6 +19,8 @@ author:
 
 paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]
+
+paginate_path: "page:num"
 
 # Custom vars
 version:          2.1.0
