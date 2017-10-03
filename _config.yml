@@ -8,7 +8,7 @@ permalink:        pretty
 
 # Setup
 title:            Amanuel Melekin
-tagline:          
+#tagline:          
 description:      'welp, I see now'
 url:              http://swala.github.io
 baseurl:          /
@@ -18,9 +18,18 @@ linkedin_username:  tembo
 twitter_username:   AmanDmam
 github_username:    swala
 
-gravatar_md5: bdc47572bf329aace9009b582c9f780e
+author:
+    gravatar_md5:   bdc47572bf329aace9009b582c9f780e
+    name:           'Amanuel Melekin'
+    linkedin:       tembo
+    github:         swala
+    email:          amelekin@gmail
+    twiter:         AmanDmam
+    
 paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]
+paginate_path: "page:num"
+
 # Custom vars
 version:          2.1.0
 

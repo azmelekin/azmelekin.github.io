@@ -32,7 +32,7 @@
  */
 
 html {
-  font-family: "Average", Helvetica, Arial, sans-serif;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 48em) {
   html {
@@ -72,7 +72,7 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 17.2rem;
+    width: 17rem;
     text-align: left;
     overflow-y: scroll;
   }
@@ -106,32 +106,19 @@ html {
   
   .sidebar-logo {
       float:center;
-      padding-left: -20px;
-      padding-top: -10px;
-      padding-bottom: -20px;
+      padding-left: 20px;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
 	
   #contact-list {
       float:left;
-      padding-left: -20px;
-      padding-top : -30px;
-      padding-bottom: 30px;
+      padding-left: 50px;
+      padding-top : 5px;
+      padding-bottom: 5px;
 	  
     }
 }
-
-/* Custom */
-.theme-custom .sidebar {
-
-  background: #CD0000 /* fallback for old browsers */
-  background: -webkit-linear-gradient(120deg, #CD0000 , #26D0CE); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(120deg, #CD0000 , #26D0CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.theme-custom .content a,
-.theme-custom .related-posts li a:hover {
-  color: #CD0000;
-}
-/*above is new*/
 
 
 /* Sidebar links */
@@ -320,3 +307,16 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+
+/* Custom */
+.theme-custom .sidebar {
+
+  background: #CD0000 /* fallback for old browsers */
+  background: -webkit-linear-gradient(120deg, #CD0000 , #26D0CE); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(120deg, #CD0000 , #26D0CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.theme-custom .content a,
+.theme-custom .related-posts li a:hover {
+  color: #CD0000;
+}
+/*above is new*/
