@@ -72,7 +72,7 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 17rem;
+    width: 15rem;
     text-align: left;
     overflow-y: scroll;
   }
@@ -99,23 +99,24 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 17rem;
+    width: 15rem;
     text-align: left;
     overflow: hidden;
   } 
   
-  .sidebar-logo {
-      float:center;
+  .sidebar-logo {  /*I made some adjustments here */
+      float:left;
       padding-left: 20px;
       padding-top: 5px;
       padding-bottom: 5px;
+	  
     }
 	
   #contact-list {
       float:left;
-      padding-left: 50px;
+      padding-left: 15px;
       padding-top : 5px;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
 	  
     }
 }

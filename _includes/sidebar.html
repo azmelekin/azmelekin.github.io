@@ -38,7 +38,7 @@
     </a>
   {% endif %}		
 
-	{% if site.twitter %}
+	{% if site.author.twitter %}
     <a href="https://twitter.com/{{ site.author.twitter }}">
       <span class="fa-stack fa-lg">
 	  <i class="fa fa-square-o fa-stack-2x"></i>
@@ -50,7 +50,7 @@
 	  
  <!-- </div>  -->
 
-	<div style="clear: both;"></div>
+<!--	<div style="clear: both;"></div> -->
     <!--new  end-->
 
 	
@@ -83,11 +83,11 @@
       {% endfor %}
 
 	  
-    <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>-->
-    <!--  <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>  -->
+    <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>  
     </nav>
-
+-->
 	
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
