@@ -1,59 +1,5 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
-  
-  <!--new  begin-->
-  <div class="sidebar-logo" >
-      <img src="https://s.gravatar.com/avatar/{{site.author.gravatar_md5 }}?s=80" />
-</div>	  
-
-<div style="clear: both;"></div>
-
-    <div id="contact-list" style="font-size: 12px;">	
-<!--<div id="contact-list" style="text-align:center">-->
-		<!-- contact icons go below -->
-{% if site.author.email %}
-    <a href="mailto: {{ site.author.email }}">
-	<span class="fa-stack fa-lg">
-		<i class="fa fa-square-o fa-stack-2x"></i>
-        <i class="fa fa-envelope fa-stack-1x"></i>
-	</span>
-    </a>
-{% endif %}
-
-{% if site.author.linkedin %}
-    <a href="https://linkedin.com/in/{{ site.author.linkedin }}">
-	<span class="fa-stack fa-lg">
-		<i class="fa fa-square-o fa-stack-2x"></i>
-		<i class="fa fa-linkedin fa-stack-1x"></i> 
-	  </span>
-    </a>
-{% endif %}
-
-{% if site.author.github %}
-      <a href="https://github.com/{{ site.author.github }}">
-	  <span class="fa-stack fa-lg">
-		<i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-github fa-stack-1x"></i>
-	  </span>
-    </a>
-  {% endif %}		
-
-	{% if site.author.twitter %}
-    <a href="https://twitter.com/{{ site.author.twitter }}">
-      <span class="fa-stack fa-lg">
-	  <i class="fa fa-square-o fa-stack-2x"></i>
-	  <i class="fa fa-twitter fa-stack-1x"></i> 
-      </span>
-	</a>
-{% endif %}
-	  </div>
-	  
- <!-- </div>  -->
-
-<!--	<div style="clear: both;"></div> -->
-    <!--new  end-->
-
-	
     <div class="sidebar-about">
       <h1>
         <a href="{{ site.baseurl }}">
@@ -63,8 +9,6 @@
       <p class="lead">{{ site.description }}</p>
     </div>
 
-
-	
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
 
@@ -82,13 +26,11 @@
         {% endif %}
       {% endfor %}
 
-	  
-    <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
       <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>  
+      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
     </nav>
--->
-	
+
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>
