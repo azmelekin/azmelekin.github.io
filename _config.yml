@@ -20,7 +20,7 @@ author:
     linkedin:       tembo
     github:         swala
     email:          amelekin@gmail
-    twiter:         AmanDmam
+    twitter:         AmanDmam
     
 paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]

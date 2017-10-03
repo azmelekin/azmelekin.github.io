@@ -8,7 +8,7 @@
 
 <div style="clear: both;"></div>
 
-    <div id="contact-list" style="font-size: 14px;">	
+    <div id="contact-list" style="font-size: 12px;">	
 <!--<div id="contact-list" style="text-align:center">-->
 		<!-- contact icons go below -->
 {% if site.author.email %}
@@ -33,16 +33,16 @@
       <a href="https://github.com/{{ site.author.github }}">
 	  <span class="fa-stack fa-lg">
 		<i class="fa fa-square-o fa-stack-2x"></i>
-      <i class="fa fa-github-alt fa-stack-1x"></i>
+      <i class="fa fa-github fa-stack-1x"></i>
 	  </span>
     </a>
   {% endif %}		
 
-	{% if site.twitter_username %}
-    <a href="https://twitter.com/{{ site.twitter_username }}">
+	{% if site.twitter %}
+    <a href="https://twitter.com/{{ site.author.twitter }}">
       <span class="fa-stack fa-lg">
 	  <i class="fa fa-square-o fa-stack-2x"></i>
-	  <i class="fa fa-twitter fa-stack-1x " ></i> 
+	  <i class="fa fa-twitter fa-stack-1x"></i> 
       </span>
 	</a>
 {% endif %}
