@@ -55,7 +55,7 @@ html {
 
 .sidebar {
   text-align: center;
-  padding: 0rem 1rem;	/*changed these from 2rem 1rem to 0rem 1rem */
+  padding: 2rem 1rem;	/*changed these from 2rem 1rem to 0rem 1rem */
   color: rgba(255,255,255,.5);
   background-color: #202020;
   overflow: hidden;
@@ -90,7 +90,7 @@ html {
 	overflow-y: scroll;
 	
   }
-}*/
+}  */
 
 /*new*/
 @media (min-width: 48rem) {
@@ -106,16 +106,16 @@ html {
   
   .sidebar-logo {
       float:center;
-      padding-left: 20px;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding-left: -20px;
+      padding-top: -10px;
+      padding-bottom: -20px;
     }
 	
   #contact-list {
       float:left;
-      padding-left: 50px;
-      padding-top : -5px;
-      padding-bottom: 5px;
+      padding-left: -20px;
+      padding-top : -30px;
+      padding-bottom: 30px;
 	  
     }
 }
