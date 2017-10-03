@@ -1,0 +1,30 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+#relative_permalinks: true
+
+# Setup
+title:            Amanuel Melekin
+tagline:          
+description:      'welp, I see now'
+url:              http://swala.github.io
+baseurl:          /
+
+email:              amelekin@gmail.com
+linkedin_username:  tembo
+twitter_username:   AmanDmam
+github_username:    swala
+
+gravatar_md5: bdc47572bf329aace9009b582c9f780e
+
+
+paginate:         5
+plugins: [jekyll-paginate, jekyll-gist]
+# Custom vars
+version:          2.1.0
+
+excerpt_separator: '<!--more-->'
+
