@@ -11,9 +11,9 @@ I was curious to see seasonal unemployment rates by race/ethnicity and gender ov
 In the second post, I will look at unemployment rates by race/ethnicity and gender over six time points (Aug 2016 - Aug 2017) as provided in the BLS website [here](https://www.bls.gov/news.release/empsit.t02.htm) and [here](https://www.bls.gov/news.release/empsit.t03.htm) 
 for Hispanic/Latino. In the third post, I will provide a quick look at R codes that created all these plots.
 
-##### Seasonal unemployment rates by Race/Ethnicity (Aug 2016 - Aug 2017)
+####### Seasonal unemployment rates by Race/Ethnicity (Aug 2016 - Aug 2017)
 <img src="/images/new%20plot-1.png"/>
-###### _What would 10 year monthly unemployment rates by Race/Ethnicity look like? ... see plot at the end of the post!_
+###### What would 10 year monthly unemployment rates by Race/Ethnicity look like? ... see plot at the end of the post!_
 <!--more-->
 The plot above shows seasonal unemployment rates by race/ethnicity at six time points during the last year. Note that the 'All White' 
 category includes non-Caucasian Whites that maybe of Hispanic/Latino origin. It is not straight forward to remove the Hispanic/Latino group from the 'All White' category and for demonstration purposes I left the data as it is. 
