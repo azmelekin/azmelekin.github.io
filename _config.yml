@@ -18,9 +18,9 @@ author:
     gravatar_md5:   bdc47572bf329aace9009b582c9f780e
     name:           'Amanuel Melekin'
     linkedin:       tembo
-    github:         amanmelekin
+    github:         
     email:          amelekin@gmail
-    twitter:        AmanDmam
+    twitter:        
     
 paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]
