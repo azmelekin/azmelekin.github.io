@@ -18,6 +18,7 @@ origin. It is not straight forward to remove the Hispanic/Latino group from the 
 For demonstration purposes, I left the groups as the are.
 
 <img src="/images/new%20plot-1.png"/>
+
 <!--more-->
 
 Unequal distribution of wealth, burden of diseases and mortality has been observed for generations. 
@@ -44,10 +45,7 @@ rates among Hispanic/Latino groups is much lower than unemployment rates among B
 that both groups are disadvantaged.
 
 ### A Time Series Plot of Unemployment Rates by Race/ethnicity (2007 - 2017) 
-
-<img src="/images/Unemployment%20rates%20over%2010%20years-1.png"/>
-
-### What would a plot of unemployment rates for 10 years look like for White, Black and Asian groups?
+#### What would a plot of unemployment rates for 10 years look like for White, Black and Asian groups?
 
 Unemployment rates for Black/African American groups is almost always two times higher than that of Asians and Whites. 
 You can also observe that month to month changes in unemployment are higher in the Asian and Black groups. Why?
