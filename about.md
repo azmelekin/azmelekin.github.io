@@ -3,5 +3,6 @@ layout: page
 title: About
 ---
 
-Not ready
+Hi, thanks for visiting! 
+I will tell you more about myself later.
 
