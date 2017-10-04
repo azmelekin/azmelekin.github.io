@@ -26,7 +26,8 @@ paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]
 paginate_path: "page:num"
 
-excerpt_separator: <!--more-->
+excerpt_separator: '<!--more-->'
+
 # Custom vars
 version:          2.1.0
 
