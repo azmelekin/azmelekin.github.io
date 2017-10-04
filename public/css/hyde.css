@@ -72,7 +72,7 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
+    width: 16rem;
     text-align: left;
     overflow-y: scroll;
   }
@@ -99,14 +99,14 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
+    width: 16rem;
     text-align: left;
     overflow: hidden;
   } 
   
   .sidebar-logo {  /*I made some adjustments here */
       float:left;
-      padding-left: 50px;
+      padding-left: 30px;
       padding-top: 5px;
       padding-bottom: 5px;
 	  
