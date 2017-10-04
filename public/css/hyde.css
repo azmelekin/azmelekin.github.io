@@ -72,7 +72,7 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 16rem;
+    width: 15rem;
     text-align: left;
     overflow-y: scroll;
   }
@@ -99,7 +99,7 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 16rem;
+    width: 15rem;
     text-align: left;
     overflow: hidden;
   } 
