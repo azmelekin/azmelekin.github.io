@@ -8,7 +8,7 @@ categories: Unemployment
 
 I was curious to see seasonal unemployment rates by race/ethnicity and gender over time.  
 Another reason for the next few posts is to show how to scrape data from the Bureaue of Labor Statistics (BLS) website, restructure data, create variables and plot the data by important grouping variables. In the second post, I will look at unemployment rates by race/ethnicity and gender over six time points (Aug 2016 - Aug 2017) as provided in the BLS website 
-[here](https://www.bls.gov/news.release/empsit.t02.htm){:target"_blank" class="external"}. The next post also includes a time series data that the BLS provides in excel format. In the third post, I will provide a quick look at the codes that created these plots and how to use time series in ggplot or plot time series using the zoo package.
+[here](https://www.bls.gov/news.release/empsit.t02.htm). The next post also includes a time series data that the BLS provides in excel format. In the third post, I will provide a quick look at the codes that created these plots and how to use time series in ggplot or plot time series using the zoo package.
 
 ### Seasonal unemployment rates by race/ethnicity (Aug 2016 - Aug 2017)
 
