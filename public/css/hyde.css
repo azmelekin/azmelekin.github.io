@@ -55,20 +55,72 @@ html {
 
 .sidebar {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem;	/*changed these from 2rem 1rem to 0rem 1rem */
   color: rgba(255,255,255,.5);
   background-color: #202020;
+  overflow: hidden;
 }
+
+.sidebar-logo { /* new */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media (min-width: 48rem) { /*new*/
+  .sidebar:hover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 15rem;
+    text-align: left;
+    overflow-y: scroll;
+  }
+}
+
+/*
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
+    width: 17rem;
     text-align: left;
+	overflow-y: scroll;
+	
   }
+}  */
+
+/*new*/
+@media (min-width: 48rem) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 15rem;
+    text-align: left;
+    overflow: hidden;
+  } 
+  
+  .sidebar-logo {  /*I made some adjustments here */
+      float:left;
+      padding-left: 20px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+	  
+    }
+	
+  #contact-list {
+      float:left;
+      padding-left: 15px;
+      padding-top : 5px;
+      padding-bottom: 10px;
+	  
+    }
 }
+
 
 /* Sidebar links */
 .sidebar a {
@@ -79,9 +131,16 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
-  font-size: 3.25rem;
+  /*font-family: "Abril Fatface", serif;
+  /*added these*/
+  font-family: 'Monofett', cursive;
+  /*font-family: 'Codystar', cursive;*/
+  /*font-family: 'Faster One', cursive;
+  /*font-family: 'Corben', cursive;*/
+ /*font-family: 'Limelight', cursive;*/
+   font-size: 1.25rem;
 }
+
 
 /* Sidebar nav */
 .sidebar-nav {
@@ -105,6 +164,7 @@ a.sidebar-nav-item:focus {
  * contents to the bottom of the sidebar in tablets and up.
  */
 
+ /*
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
@@ -113,7 +173,7 @@ a.sidebar-nav-item:focus {
     left:   1rem;
   }
 }
-
+*/
 
 /* Container
  *
@@ -248,3 +308,16 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+
+/* Custom */
+.theme-custom .sidebar {
+
+  background: #CD0000 /* fallback for old browsers */
+  background: -webkit-linear-gradient(120deg, #CD0000 , #26D0CE); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(120deg, #CD0000 , #26D0CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.theme-custom .content a,
+.theme-custom .related-posts li a:hover {
+  color: #CD0000;
+}
+/*above is new*/
