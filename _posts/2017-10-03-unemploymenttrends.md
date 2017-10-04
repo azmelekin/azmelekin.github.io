@@ -15,6 +15,7 @@ for Hispanic/Latino. In the third post, I will provide a quick look at R codes t
 
 - **What would 10 year monthly unemployment rates by Race/Ethnicity look like? ... see plot at the end of the post!**
 <!--more-->
+
 The plot above shows seasonal unemployment rates by race/ethnicity at six time points during the last year. Note that the 'All White' 
 category includes non-Caucasian Whites that maybe of Hispanic/Latino origin. It is not straight forward to remove the Hispanic/Latino group from the 'All White' category and for demonstration purposes I left the data as it is. 
 
