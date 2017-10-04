@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Unemployment Rates Over Time"
-date:   2017-10-2
+date:   2017-10-03
 excerpt_separator: <!--more-->
 categories: Unemployment
 ---
