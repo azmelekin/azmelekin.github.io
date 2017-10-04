@@ -10,8 +10,8 @@ permalink:        pretty
 title:            Amanuel Melekin
 #tagline:          
 description:      'welp, I see now'
-url:              http://amanmelekin.github.io/socialsystems
-baseurl:          /socialsystems/
+url:              http://azmelekin.github.io/
+baseurl:          /azmelekin.github.io/
 
 
 author:
@@ -26,7 +26,7 @@ paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]
 paginate_path: "page:num"
 
-excerpt_separator: '<!--more-->'
+#excerpt_separator: '<!--more-->'
 
 # Custom vars
 version:          2.1.0
