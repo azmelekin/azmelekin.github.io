@@ -193,6 +193,7 @@ All_plot
 ```
 <img src="/images/All_plot-1.png"/>
 
+
 The above plot was for 6 time points within a year, now I will look at 10 years' monthly data. 
 
 **Time Series Data**
