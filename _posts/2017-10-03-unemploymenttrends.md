@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Unemployment Rates Over Time"
+title:  "Unemployment Rates Over Time (I)"
 date:   2017-10-03
 excerpt_separator: <!--more-->
 categories: Unemployment
 ---
 
-I was curious to see seasonal unemployment rates by race/ethnicity and gender over time. Another reason for the next few posts is to show how to scrape html data from the web (specifically Bureaue of Labor Statistics (BLS) website), prepare and plot the data by important grouping variables. The time series plot data was obtained from [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm) -- I selected the seasonally adjusted and saved in my local drive. All data wrangling and plotting was done in R.
+I was curious to see seasonal unemployment rates by race/ethnicity and gender over time. Another reason for the next few posts is to show how to scrape html data from the web (specifically Bureaue of Labor Statistics (BLS) website), prepare and plot the data by important grouping variables. The time series plot data were obtained from [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm) -- I selected the seasonally adjusted and saved in my local drive. All data wrangling and plotting was done in R.
 
 In the second post, I will look at unemployment rates by race/ethnicity and gender over six time points (Aug 2016 - Aug 2017) as provided in the BLS website [here](https://www.bls.gov/news.release/empsit.t02.htm) and [here](https://www.bls.gov/news.release/empsit.t03.htm) 
 for Hispanic/Latino. In the third post, I will provide a quick look at R codes that created all these plots.
