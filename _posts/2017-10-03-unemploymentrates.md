@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Unemployment Rates by Race/Ethnicity (II)"
-date:   2017-10-2
+date:   2017-10-04
 excerpt_separator: <!--more-->
 categories: firstpost
 ---
