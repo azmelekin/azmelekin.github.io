@@ -7,13 +7,13 @@ categories: Unemployment
 ---
 
 I will first setup the environment and load some of the packages that will be used.
-The good think in using R Markdown is creating code in chunks for clarity and ease of debugging. 
+The good thing in using R Markdown is creating code in chunks for clarity and ease of debugging. 
 [Table 2](https://www.bls.gov/news.release/empsit.t02.htm) & [Table 3](https://www.bls.gov/news.release/empsit.t03.htm) of the _Economic News Release_ contain
 the relevant general labor force data including employment/unemployment rates for various groups.
-I will extract and plot unemployment rate data by race/ethnicity and/or by gender. 
+I will extract and plot unemployment rate data by race/ethnicity and by gender. 
 
 I will first setup the environment and load some of the packages that will be used. 
-Remember to begin and end the code below with  ```  when using R Markdown.
+Remember to begin and end the code below with  '```'  when using R Markdown.
 
 {% highlight ruby %}
 
@@ -203,17 +203,18 @@ data are available in excel for various groups in bls website [here](https://www
 I selected all & saved each excel file in my local drive. Then import into R.
 
 - Time series data for the White group
+
 ``` r
 WhiteAll_unemp <- as.data.frame(read_excel("yourPath/CPSwhiteAll.xlsx", skip=12)) #'skip' first 12 rows are notes...
 
-#Let's assign original data frame to an new data frame.
+Let's assign original data frame to an new data frame.
 WhiteAll_unempl <- WhiteAll_unemp[,-1]
 
-#& made the firt column to be row names like so:
+& made the first column to be row names like:
 rownames(WhiteAll_unempl) <- WhiteAll_unemp[,1]
 
-# create & convert to time series. 
-#You will appreciate this step if you look at the data before and after the following code is executed. 
+create & convert to time series. 
+You will appreciate this step if you look at the data before and after the following code is executed. 
 WhiteAll_unemp2 <- ts(as.vector(t(as.matrix(WhiteAll_unempl))), start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
 
