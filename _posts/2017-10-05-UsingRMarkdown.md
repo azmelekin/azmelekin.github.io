@@ -191,7 +191,7 @@ All_plot <- ggplot(data=WBAL1data[c(4:9,13:18,22:27,31:36),], aes(x=Qtrs, y=Unem
   theme(legend.title = element_blank(), legend.text = element_text(size = 12), legend.background = element_rect(fill="NA", size=.5, linetype = "solid"))
 All_plot
 ```
-<img src="/images/All_RacePlt.png"/>
+<img src="/images/All_plot-1.png"/>
 
 The above plot was for 6 time points within a year, now I will look at 10 years' monthly data. 
 
