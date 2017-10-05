@@ -9,6 +9,7 @@ My interests are wide & include:
 - Methods &
 - Applied statistics
 - Data Science
+
 to study group differences emerging from varoius systems and mechanisms driving the emergence of such differences.  
 
 I am also interested in Systems Philosophy as a disciple of 
