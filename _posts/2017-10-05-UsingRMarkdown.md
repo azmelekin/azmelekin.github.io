@@ -278,6 +278,7 @@ df_all_race <- rename(df_all_race, Year=Index, unemployment_rate=Value, Race=Ser
 ```
 
 Plot the time series (can reduce some of the specifications below)
+
 ``` r
 ggplot(data=df_all_race, aes(x=Year, y=unemployment_rate, group=Race, shape=Race, color=Race)) + 
 geom_line() + geom_point() +
