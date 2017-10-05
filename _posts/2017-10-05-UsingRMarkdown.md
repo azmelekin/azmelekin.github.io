@@ -207,7 +207,7 @@ I selected all & saved each excel file in my local drive. Then import into R.
 ``` r
 WhiteAll_unemp <- as.data.frame(read_excel("yourPath/CPSwhiteAll.xlsx", skip=12)) #'skip' first 12 rows are notes...
 
-Let's assign original data frame to an new data frame.
+I will assign original data frame to an new data frame.
 WhiteAll_unempl <- WhiteAll_unemp[,-1]
 
 & made the first column to be row names like:
