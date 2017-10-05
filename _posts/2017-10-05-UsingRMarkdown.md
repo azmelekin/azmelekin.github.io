@@ -219,7 +219,7 @@ WhiteAll_unemp2 <- ts(as.vector(t(as.matrix(WhiteAll_unempl))), start = c(2007, 
 
 The above four lines of code are applied to the tables for Black, Hispanic & Asian groups below.
 
-Time series data for the Black/African American group
+-Time series data for the Black/African American group
 
 ``` r
 BlackAll_unemp <- as.data.frame(read_excel("yourPath/CPSblackAll.xlsx", skip=12))
@@ -229,7 +229,7 @@ BlackAll_unemp2 <- ts(as.vector(t(as.matrix(BlackAll_unempl))),
                       start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
 
-- **Time series data for the Hispanic/Latino group**
+-Time series data for the Hispanic/Latino group
 
 ``` r
 HispanicAll_unemp <- as.data.frame(read_excel("yourPath/CPShispanicAll.xlsx", skip=12))
@@ -239,7 +239,7 @@ HispanicAll_unemp2 <- ts(as.vector(t(as.matrix(HispanicAll_unempl))),
                       start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
 
-Time series for the Asian group
+-Time series for the Asian group
 
 ``` r
 AsianAll_unemp <- as.data.frame(read_excel("yourPath/CPSasianAll.xlsx", skip=12))
