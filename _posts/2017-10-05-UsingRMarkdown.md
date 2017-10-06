@@ -142,7 +142,7 @@ WBAL1data[,10:11] <- lapply(WBAL1data[,10:11],
 **Time to plot the data!**
 ``` r
 #Plot for Race/ethnic groups using ggplot
-#Note I am plotting subset of data as indicated by the selected rows bewlo
+#Note I am plotting subset of data as indicated by the selected rows below
 All_plot <- ggplot(data=WBAL1data[c(4:9,13:18,22:27,31:36),], 
     aes(x=Qtrs, y=Unemp_rate, shape=Race, color=Race, group=Race ))+
   geom_point() + 
