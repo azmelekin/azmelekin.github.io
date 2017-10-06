@@ -6,7 +6,7 @@ Hello, thanks for visiting!
 
 My interests are wide & include: 
 - Social systems 
-- Methods &
+- Methods
 - Applied statistics
 - Data Science
 
