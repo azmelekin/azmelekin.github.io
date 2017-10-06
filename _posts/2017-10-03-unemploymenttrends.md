@@ -14,7 +14,7 @@ saved in my local drive. All data wrangling and plotting was done in R.
 
 In the second post, I will look at unemployment rates by race/ethnicity and gender over six time points (Aug 2016 - Aug 2017) 
 as provided in the BLS website [here](https://www.bls.gov/news.release/empsit.t02.htm) and [here](https://www.bls.gov/news.release/empsit.t03.htm) 
-for Hispanic/Latino. In the third post, I will provide a quick look at R codes that created all these plots.  
+for Hispanic/Latino at the time of writing this post. In the third post, I will provide a quick look at R codes that created all these plots.  
 Here is a plot of unemployment rates by race/ethnicity over time (for the last one year at 6 time points).
 
 <img src="/images/new%20plot-1.png"/>

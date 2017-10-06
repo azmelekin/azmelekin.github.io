@@ -12,8 +12,9 @@ This post provides a quick tutorial on how I obtained and plotted the data using
 I will first setup the R environment and load some of the packages that will be used.
 The good thing in using R Markdown is creating code in chunks for clarity and ease of debugging. 
 [Table 2](https://www.bls.gov/news.release/empsit.t02.htm) & [Table 3](https://www.bls.gov/news.release/empsit.t03.htm) of the _Economic News Release_ contain
-the relevant general labor force data including employment/unemployment rates for various groups.
-I will extract and plot unemployment rate data by race/ethnicity and by gender. 
+the relevant general labor force data including employment/unemployment rates for various groups. 
+Note: Monthly data changes in those tables. At the time of this writing, the tables had Aug 2016 - Aug 2017.
+I extracted and plotted unemployment rate data by race/ethnicity and by gender. 
 
 Code chunks in R Markdown begin & end with ```
 
