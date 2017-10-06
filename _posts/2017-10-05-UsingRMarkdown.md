@@ -92,7 +92,6 @@ W1data <- EconNewsAll[2:9,2:10]
 rownames(W1data)<- c("Civil_noninst_pop","civil_labor_force", "Particip_rate", "Employed", "Emp_pop_ratio", "Unemployed","Unemp_rate", "Not_in_labor_force")
 
 #transpose table for analysis & plotting
-
 W1data <- as.data.frame(t(W1data))
 ```
 
@@ -131,7 +130,9 @@ B1data <- B1data %>%
 
 B1data[,1:8] <- lapply(B1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
+
 - For the Asian group
+
 ``` r
 #grab sub-table for All Asians (Note: Asians were not categorized by gender and age)
 A1data <- EconNewsAll[64:71,2:10]
@@ -166,8 +167,9 @@ L1data <- L1data %>%
 L1data[,1:8] <- lapply(L1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
-``` r  
-#Combine (append) Asian, Hispanic, Black, White tables to create one table for all.
+Combine (append) Asian, Hispanic, Black, White tables to create one table for all.
+
+``` r
 WBAL1data <- dplyr:: bind_rows(W1data, B1data, A1data, L1data)
 
 WBAL1data[,10:11] <- lapply(WBAL1data[,10:11], function(x) as.factor(as.character(x)))
