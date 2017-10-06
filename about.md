@@ -2,12 +2,12 @@
 layout: page
 title: About
 ---
-Hello, thanks for visiting!   
+Hello, thanks for visiting! I am a graduate of the Systems Science Ph.D. Program at Portland State University.   
 
 My interests are wide & include: 
 - Social systems 
-- Methods &
-- Applied statistics
+- Methods
+- Applied statistics &
 - Data Science
 
 to study group differences emerging from varoius systems and mechanisms driving the emergence of such differences.  
