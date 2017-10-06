@@ -25,10 +25,6 @@ knitr::opts_chunk$set(echo=TRUE, invisible=TRUE, warning=FALSE)
 pkg<-c("XML", "RCurl", "rlist", "curl", "stringr", "gapminder", 
 	"ggplot2", "xml2", "dplyr", "zoo", "readxl") 
 
-#load libraries (may not use all of them)
-pkg <- c("XML", "RCurl", "rlist", "curl", "stringr", "gapminder", "ggplot2", "xml2", "dplyr", "zoo", "readxl")
-lapply(pkg, require, character.only = TRUE)
-
 lapply(pkg, require, character.only = TRUE)
 ```
 
@@ -147,12 +143,9 @@ WBAL1data[,10:11] <- lapply(WBAL1data[,10:11],
 #Plot for Race/ethnic groups using ggplot
 #Note I am plotting subset of data as indicated by the selected rows bewlo
 All_plot <- ggplot(data=WBAL1data[c(4:9,13:18,22:27,31:36),], 
-    aes(x=Qtrs, y=Unemp_rate, shape=Race, color=Race, group=Race ))+ 
-	
+    aes(x=Qtrs, y=Unemp_rate, shape=Race, color=Race, group=Race ))+
   geom_point() + 
-  
   geom_line() + 
-  
   scale_x_discrete(limits =c(4:9), 
 	labels=c("Aug 2016", "Apr 2017", "May 2017", "Jun 2017",
 					"Jul 2017", "Aug 2017"))+ 
@@ -173,9 +166,7 @@ All_plot <- ggplot(data=WBAL1data[c(4:9,13:18,22:27,31:36),],
 		legend.text = element_text(size = 12), 
 		legend.background = element_rect(fill="NA", 
 				size=.5, linetype = "solid"))
-
 #reveal the plot
-
 All_plot
 ```
 <img src="/images/All_plot-1.png"/>
