@@ -36,7 +36,7 @@ html {
 }
 @media (min-width: 48em) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (min-width: 58em) {
@@ -133,11 +133,11 @@ html {
   margin-top: 0;
   /*font-family: "Abril Fatface", serif;
   /*added these*/
-  /*font-family: 'Monofett', cursive;*/
+  /*font-family: 'Monofett', cursive;
   /*font-family: 'Codystar', cursive;*/
   /*font-family: 'Faster One', cursive;
   /*font-family: 'Corben', cursive;*/
- font-family: 'Limelight', cursive;
+	font-family: 'Limelight', cursive;
    font-size: 1.25rem;
 }
 
