@@ -7,13 +7,12 @@ categories: Unemployment
 ---
 
 I will first setup the environment and load some of the packages that will be used.
-The good think in using R Markdown is creating code in chunks for clarity and ease of debugging. 
+The good thing in using R Markdown is creating code in chunks for clarity and ease of debugging. 
 [Table 2](https://www.bls.gov/news.release/empsit.t02.htm) & [Table 3](https://www.bls.gov/news.release/empsit.t03.htm) of the _Economic News Release_ contain
 the relevant general labor force data including employment/unemployment rates for various groups.
-I will extract and plot unemployment rate data by race/ethnicity and/or by gender. 
+I will extract and plot unemployment rate data by race/ethnicity and by gender. 
 
-I will first setup the environment and load some of the packages that will be used. 
-Remember to begin and end the code below with  ```  when using R Markdown.
+Remember to begin and end the code below with  '```'  when using R Markdown.
 
 {% highlight ruby %}
 
@@ -28,7 +27,7 @@ lapply(pkg, require, character.only = TRUE)
 
 <!--more-->
 
-Obtain (scrape) the relevant tables:
+Obtain (scrape) & parse the relevant html tables:
 ``` r
 #This code will extract the data.
 EconNews <- as.data.frame(readHTMLTable(getURL("https://www.bls.gov/news.release/empsit.t02.htm"),
@@ -37,8 +36,7 @@ EconNews <- as.data.frame(readHTMLTable(getURL("https://www.bls.gov/news.release
 #see what the first few lines of the data look like. We also need to assign appropriate columns and rows later.
 head(EconNews[,c(1,5:10)])
 ```
-Some more cleaning & adjustment:
-"," needs to be removed so we can coveniently convert from one to another form of number types.
+Some more cleaning & adjustment: remove "," from the data so we can coveniently convert from one to another form of number types.
 
 ``` r
 EconNews[] <- lapply(EconNews, gsub, pattern=',', replacement='')
@@ -46,12 +44,12 @@ EconNews[] <- lapply(EconNews, gsub, pattern=',', replacement='')
 #Now I will just make columns for the table and assign those to columns 2-10 (the first column is variable names)
 
 colName <- c("Aug2016", "Jul2017", "Aug2017", "Aug2016a", "Apr2017a", "May2017a", "Jun2017a", "Jul2017a", "Aug2017a")
-
+#the suffix 'a' indicates that column's data is seasonally adjusted.
 names(EconNews)[2:10] <- colName
 ```
 
 Scrapping the table for Latino/Hispanic group.
-Essentially, the code is the same as the above but need to point to the appropriate url.
+Essentially, the code for this is the same as above but need to point to the appropriate url.
 
 ``` r
 EconNewsLat <- as.data.frame(readHTMLTable(getURL("https://www.bls.gov/news.release/empsit.t03.htm"), stringsAsFactors=FALSE, trim = TRUE))
@@ -64,8 +62,7 @@ names(EconNewsLat)[2:10] <- colName
 head(EconNewsLat[,c(1,5:10)])
 ```
 
-Names of the first rows for "EconNews" & "EcoNewsLat" are different, so we can't do row bind when column names are different.
-
+Names of the first column & first row of "EconNews" & "EcoNewsLat" are different, so we can't do row bind when column names are different.
 
 Remove different names of first column or rename them with the same column name. I will remove them.
 
@@ -75,7 +72,7 @@ colnames(EconNews)[1] <- ""
 ```
 
 Row_bind (append) the two tables, using the dplyr package and call the giant table "EconNewsAll"
-and can have a look at the first few lines of the relevant columns.
+& can have a look at the first few lines of the relevant columns.
 
 ``` r
 EconNewsAll <- dplyr::bind_rows(EconNews,EconNewsLat)
@@ -85,6 +82,8 @@ head(EconNewsAll[,c(1,5:)])
 ```
 
 Now I can subset data by race, gender and age. I also need to rename rows.
+
+For the White group
 
 ``` r
 #grab sub-table for all White group as "W1data"
@@ -99,7 +98,7 @@ W1data <- as.data.frame(t(W1data))
 ```
 
 Add indicator variables for 'Race', 'Quarters' or 'time', 'Class'. Quarters (Qtrs) is months data were released; 
-Classes indicate age & gender status in case we want to look at plots by age, gender and race...
+Classes indicate age & gender status in case we want to look at plots by age, gender and race...  
 
 ``` r
 #again with the dplyr package
@@ -113,10 +112,11 @@ W1data[,1:8] <- lapply(W1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
 All other data manipulation activities below are copies of the above for specific race/ethnic/gender categories, 
-so I will not elaborate further. I only needed to change data frame names, appropriate rows, & classes. 
+so I will not elaborate further. I only needed to change data frame names,?point to appropriate rows, & classes. 
 You can jump to the code for the plots if you like.
 
 For the Black/African American group
+
 ``` r
 #grab sub-table for All Blacks
 B1data <- EconNewsAll[33:40,2:10] 
@@ -132,8 +132,7 @@ B1data <- B1data %>%
 
 B1data[,1:8] <- lapply(B1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
-
-For the Asian group
+For the Asian group  
 ``` r
 #grab sub-table for All Asians (Note: Asians were not categorized by gender and age)
 A1data <- EconNewsAll[64:71,2:10]
@@ -150,7 +149,8 @@ A1data <- A1data %>%
 A1data[,1:8] <- lapply(A1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
-For the Latino/Hispanic group
+For the Latino/Hispanic group  
+
 ``` r
 #grab sub-table for All Latino/Hispanic
 L1data <- EconNewsAll[73:80,2:10]
@@ -167,7 +167,7 @@ L1data <- L1data %>%
 L1data[,1:8] <- lapply(L1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
-``` r
+``` r  
 #Combine (append) Asian, Hispanic, Black, White tables to create one table for all.
 WBAL1data <- dplyr:: bind_rows(W1data, B1data, A1data, L1data)
 
@@ -202,24 +202,25 @@ A Time Series Plot of Unemployment Rates by Race/ethnicity (2007 - 2017)
 data are available in excel for various groups in bls website [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm) 
 I selected all & saved each excel file in my local drive. Then import into R.
 
-Time series data for the White group
+- Time series data for the White group
+
 ``` r
 WhiteAll_unemp <- as.data.frame(read_excel("yourPath/CPSwhiteAll.xlsx", skip=12)) #'skip' first 12 rows are notes...
 
-#Let's assign original data frame to an new data frame.
+I will assign original data frame to a new data frame.
 WhiteAll_unempl <- WhiteAll_unemp[,-1]
 
-#& made the firt column to be row names like so:
+& made the first column to be row names like:
 rownames(WhiteAll_unempl) <- WhiteAll_unemp[,1]
 
-# create & convert to time series. 
-#You will appreciate this step if you look at the data before and after the following code is executed. 
+create & convert to time series. 
+You will appreciate this step if you look at the data before and after the following code is executed. 
 WhiteAll_unemp2 <- ts(as.vector(t(as.matrix(WhiteAll_unempl))), start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
 
 The above four lines of code are applied to the tables for Black, Hispanic & Asian groups below.
 
-Time series data for the Black/African American group
+- Time series data for the Black/African American group
 
 ``` r
 BlackAll_unemp <- as.data.frame(read_excel("yourPath/CPSblackAll.xlsx", skip=12))
@@ -229,7 +230,7 @@ BlackAll_unemp2 <- ts(as.vector(t(as.matrix(BlackAll_unempl))),
                       start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
 
-- **Time series data for the Hispanic/Latino group**
+- Time series data for the Hispanic/Latino group
 
 ``` r
 HispanicAll_unemp <- as.data.frame(read_excel("yourPath/CPShispanicAll.xlsx", skip=12))
@@ -239,7 +240,7 @@ HispanicAll_unemp2 <- ts(as.vector(t(as.matrix(HispanicAll_unempl))),
                       start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
 
-Time series for the Asian group
+- Time series for the Asian group
 
 ``` r
 AsianAll_unemp <- as.data.frame(read_excel("yourPath/CPSasianAll.xlsx", skip=12))
@@ -277,6 +278,7 @@ df_all_race <- rename(df_all_race, Year=Index, unemployment_rate=Value, Race=Ser
 ```
 
 Plot the time series (can reduce some of the specifications below)
+
 ``` r
 ggplot(data=df_all_race, aes(x=Year, y=unemployment_rate, group=Race, shape=Race, color=Race)) + 
 geom_line() + geom_point() +
