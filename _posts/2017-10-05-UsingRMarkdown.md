@@ -19,7 +19,7 @@ Remember to begin and end the code below with  '```'  when using R Markdown.
 {r setup, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE, invisible=TRUE, warning = FALSE)
 
-#load libraries
+#load libraries (may not use all of them)
 pkg <- c("XML", "RCurl", "rlist", "curl", "stringr", "gapminder", "ggplot2", "xml2", "dplyr", "zoo", "readxl")
 lapply(pkg, require, character.only = TRUE)
 
@@ -29,7 +29,7 @@ lapply(pkg, require, character.only = TRUE)
 
 Obtain (scrape) & parse the relevant html tables:
 ``` r
-#This code will extract the data.
+#This code will extract table 2.
 EconNews <- as.data.frame(readHTMLTable(getURL("https://www.bls.gov/news.release/empsit.t02.htm"),
                stringsAsFactors=FALSE, trim = TRUE))
 
@@ -48,7 +48,7 @@ colName <- c("Aug2016", "Jul2017", "Aug2017", "Aug2016a", "Apr2017a", "May2017a"
 names(EconNews)[2:10] <- colName
 ```
 
-Scrapping the table for Latino/Hispanic group.
+Scraping the table for Latino/Hispanic group.
 Essentially, the code for this is the same as above but need to point to the appropriate url.
 
 ``` r
@@ -71,19 +71,18 @@ colnames(EconNewsLat)[1] <- ""
 colnames(EconNews)[1] <- ""
 ```
 
-Row_bind (append) the two tables, using the dplyr package and call the giant table "EconNewsAll"
-& can have a look at the first few lines of the relevant columns.
+Use dplyr's bind_rows function to append the two tables & call the giant table "EconNewsAll"
 
 ``` r
 EconNewsAll <- dplyr::bind_rows(EconNews,EconNewsLat)
 
-#see few first lines
+#Have a look at the first few lines of the relevant columns.
 head(EconNewsAll[,c(1,5:)])
 ```
 
 Now I can subset data by race, gender and age. I also need to rename rows.
 
-For the White group
+- For the White group
 
 ``` r
 #grab sub-table for all White group as "W1data"
@@ -115,7 +114,7 @@ All other data manipulation activities below are copies of the above for specifi
 so I will not elaborate further. I only needed to change data frame names,?point to appropriate rows, & classes. 
 You can jump to the code for the plots if you like.
 
-For the Black/African American group
+- For the Black/African American group
 
 ``` r
 #grab sub-table for All Blacks
@@ -132,7 +131,7 @@ B1data <- B1data %>%
 
 B1data[,1:8] <- lapply(B1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
-For the Asian group  
+- For the Asian group
 ``` r
 #grab sub-table for All Asians (Note: Asians were not categorized by gender and age)
 A1data <- EconNewsAll[64:71,2:10]
@@ -149,7 +148,7 @@ A1data <- A1data %>%
 A1data[,1:8] <- lapply(A1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
-For the Latino/Hispanic group  
+- For the Latino/Hispanic group
 
 ``` r
 #grab sub-table for All Latino/Hispanic
