@@ -96,7 +96,7 @@ W1data <- as.data.frame(t(W1data))
 ```
 
 Add indicator variables for 'Race', 'Quarters' or 'time', 'Class'. Quarters (Qtrs) is months data were released; 
-Classes indicate age & gender status in case we want to look at plots by age, gender and race...
+Classes indicate age & gender status in case we want to look at plots by age, gender and race...  
 
 ``` r
 #again with the dplyr package
@@ -114,6 +114,7 @@ so I will not elaborate further. I only needed to change data frame names,?point
 You can jump to the code for the plots if you like.
 
 - For the Black/African American group
+
 ``` r
 #grab sub-table for All Blacks
 B1data <- EconNewsAll[33:40,2:10] 
@@ -131,6 +132,7 @@ B1data[,1:8] <- lapply(B1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
 - For the Asian group
+
 ``` r
 #grab sub-table for All Asians (Note: Asians were not categorized by gender and age)
 A1data <- EconNewsAll[64:71,2:10]
@@ -148,6 +150,7 @@ A1data[,1:8] <- lapply(A1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
 - For the Latino/Hispanic group
+
 ``` r
 #grab sub-table for All Latino/Hispanic
 L1data <- EconNewsAll[73:80,2:10]
@@ -164,7 +167,7 @@ L1data <- L1data %>%
 L1data[,1:8] <- lapply(L1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
-``` r
+``` r  
 #Combine (append) Asian, Hispanic, Black, White tables to create one table for all.
 WBAL1data <- dplyr:: bind_rows(W1data, B1data, A1data, L1data)
 
