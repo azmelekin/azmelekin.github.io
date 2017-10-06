@@ -206,7 +206,7 @@ I selected all & saved each excel file in my local drive. Then import into R.
 - Time series data for the White group
 
 ``` r
-WhiteAll_unemp <- as.data.frame(read_excel("yourPath/CPSwhiteAll.xlsx", skip=12)) #'skip' first 12 rows are notes...
+WhiteAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12)) #'skip' first 12 rows are notes...
 
 I will assign original data frame to a new data frame.
 WhiteAll_unempl <- WhiteAll_unemp[,-1]
@@ -224,7 +224,7 @@ The above four lines of code are applied to the tables for Black, Hispanic & Asi
 - Time series data for the Black/African American group
 
 ``` r
-BlackAll_unemp <- as.data.frame(read_excel("yourPath/CPSblackAll.xlsx", skip=12))
+BlackAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12))
 BlackAll_unempl <- BlackAll_unemp[,-1]
 rownames(BlackAll_unempl) <- BlackAll_unemp[,1]
 BlackAll_unemp2 <- ts(as.vector(t(as.matrix(BlackAll_unempl))), 
@@ -234,7 +234,7 @@ BlackAll_unemp2 <- ts(as.vector(t(as.matrix(BlackAll_unempl))),
 - Time series data for the Hispanic/Latino group
 
 ``` r
-HispanicAll_unemp <- as.data.frame(read_excel("yourPath/CPShispanicAll.xlsx", skip=12))
+HispanicAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12))
 HispanicAll_unempl <- HispanicAll_unemp[,-1]
 rownames(HispanicAll_unempl) <- HispanicAll_unemp[,1]
 HispanicAll_unemp2 <- ts(as.vector(t(as.matrix(HispanicAll_unempl))), 
@@ -244,7 +244,7 @@ HispanicAll_unemp2 <- ts(as.vector(t(as.matrix(HispanicAll_unempl))),
 - Time series for the Asian group
 
 ``` r
-AsianAll_unemp <- as.data.frame(read_excel("yourPath/CPSasianAll.xlsx", skip=12))
+AsianAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12))
 AsianAll_unempl <- AsianAll_unemp[,-1]
 rownames(AsianAll_unempl) <- AsianAll_unemp[,1]
 AsianAll_unemp2 <- ts(as.vector(t(as.matrix(AsianAll_unempl))), start = c(2007, 1), end=c(2017, 12), frequency=12)
