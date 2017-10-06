@@ -82,7 +82,9 @@ head(EconNewsAll[,c(1,5:)])
 ```
 
 Now I can subset data by race, gender and age. I also need to rename rows.
-- FOR the White group
+
+-FOR the White group
+
 ``` r
 #grab sub-table for all White group as "W1data"
 W1data <- EconNewsAll[2:9,2:10] 
@@ -130,9 +132,7 @@ B1data <- B1data %>%
 
 B1data[,1:8] <- lapply(B1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
-
-- For the Asian group
-
+- For the Asian group  
 ``` r
 #grab sub-table for All Asians (Note: Asians were not categorized by gender and age)
 A1data <- EconNewsAll[64:71,2:10]
@@ -149,7 +149,7 @@ A1data <- A1data %>%
 A1data[,1:8] <- lapply(A1data[,1:8], function(x) as.numeric(as.character(x)))
 ```
 
-- For the Latino/Hispanic group
+- For the Latino/Hispanic group  
 
 ``` r
 #grab sub-table for All Latino/Hispanic
