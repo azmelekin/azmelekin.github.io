@@ -7,7 +7,6 @@ Hello, thanks for visiting! I am a graduate of the Systems Science Ph.D. Program
 My interests are wide & include: 
 - Social systems 
 - Methods
-- Applied statistics
 - Applied statistics &
 - Data Science
 
