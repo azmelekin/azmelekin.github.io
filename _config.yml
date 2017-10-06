@@ -8,15 +8,12 @@ permalink:        pretty
 
 # Setup
 title:            Amanuel Melekin
-<<<<<<< HEAD
-#tagline:          
+        
 description:      'Social systems & Data'
-url:              /http://azmelekin.github.io/
-=======
-#tagline:         what is this?
+
 description:      'Data & social systems'
 url:              http://azmelekin.github.io/
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
+
 baseurl:          /azmelekin.github.io/
 
 
@@ -32,7 +29,7 @@ paginate:         5
 plugins: [jekyll-paginate, jekyll-gist]
 paginate_path: "page:num"
 
-#excerpt_separator: '<!--more-->'
+excerpt_separator: '<!--more-->'
 
 # Custom vars
 version:          2.1.0

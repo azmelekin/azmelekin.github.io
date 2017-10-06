@@ -21,15 +21,13 @@ Code chunks in R Markdown begin & end with ```
 {r setup, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE, invisible=TRUE, warning=FALSE)
 
-<<<<<<< HEAD
 #load libraries
 pkg<-c("XML", "RCurl", "rlist", "curl", "stringr", "gapminder", 
 	"ggplot2", "xml2", "dplyr", "zoo", "readxl") 
-=======
+
 #load libraries (may not use all of them)
 pkg <- c("XML", "RCurl", "rlist", "curl", "stringr", "gapminder", "ggplot2", "xml2", "dplyr", "zoo", "readxl")
 lapply(pkg, require, character.only = TRUE)
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
 
 lapply(pkg, require, character.only = TRUE)
 ```
@@ -39,27 +37,22 @@ lapply(pkg, require, character.only = TRUE)
 - ###### Obtain (scrape) & parse the relevant html tables:
 
 ``` r
-<<<<<<< HEAD
 #This code will extract the data.
 EconNews <- as.data.frame(readHTMLTable(
 	getURL("https://www.bls.gov/news.release/empsit.t02.htm"),
         stringsAsFactors=FALSE, trim = TRUE))
-=======
-#This code will extract table 2.
-EconNews <- as.data.frame(readHTMLTable(getURL("https://www.bls.gov/news.release/empsit.t02.htm"),
-               stringsAsFactors=FALSE, trim = TRUE))
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
 
 #see what the first few lines of the data look like. We also need to assign appropriate columns and rows later.
 head(EconNews[,c(1,5:10)]) 
 	#looking at all rows, first column and columns 5-10.
 ```
+
 Some more data cleaning & adjustment: remove "," from the data so we can coveniently convert from one to another form of number types.
 
 ``` r
 EconNews[] <- lapply(EconNews, gsub, pattern=',', replacement='')
 
-#Now I will just make columns for the table and assign those to columns 2-10 (the first column is variable names)
+#Make columns for the table and assign those to columns 2-10 (the first column is variable names)
 
 colName <- c("Aug2016", "Jul2017", "Aug2017", "Aug2016a", "Apr2017a", 
 		  "May2017a", "Jun2017a", "Jul2017a", "Aug2017a")
@@ -68,14 +61,11 @@ colName <- c("Aug2016", "Jul2017", "Aug2017", "Aug2016a", "Apr2017a",
 names(EconNews)[2:10] <- colName
 ```
 
-<<<<<<< HEAD
-- Scrapping the table for Latino/Hispanic group.
+- Scrapping the data for Latino/Hispanic group.
 
 Essentially, the code for this is the same as above but need to point to the appropriate url & name the data frame.
-=======
 Scraping the table for Latino/Hispanic group.
 Essentially, the code for this is the same as above but need to point to the appropriate url.
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
 
 ``` r
 EconNewsLat <- as.data.frame(readHTMLTable(
@@ -95,11 +85,8 @@ colnames(EconNewsLat)[1] <- ""
 colnames(EconNews)[1] <- ""
 ```
 
-<<<<<<< HEAD
 - bind rows (append) the two tables using the dplyr package and call the giant table "EconNewsAll"
-=======
 Use dplyr's bind_rows function to append the two tables & call the giant table "EconNewsAll"
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
 
 ``` r
 EconNewsAll <- dplyr::bind_rows(EconNews,EconNewsLat)
@@ -141,81 +128,18 @@ W1data[,1:8] <- lapply(W1data[,1:8],
 ```
 
 All other data manipulation activities below are copies of the above for specific race/ethnic/gender categories, 
-<<<<<<< HEAD
 so I will not elaborate further. I only needed to change data frame names, select appropriate rows & classes. 
 
 I have obtained sub-tables for Black/African American as 'B1data', for Hispanic/Latino as 'L1data', & for Asian as 'A1data'.
 So, I will combine the four tables with the following code:
- 
-``` r  
-#Combine (append) Asian, Hispanic, Black, White tables to create one table for all.
-=======
-so I will not elaborate further. I only needed to change data frame names,?point to appropriate rows, & classes. 
-You can jump to the code for the plots if you like.
-
-- For the Black/African American group
-
-``` r
-#grab sub-table for All Blacks
-B1data <- EconNewsAll[33:40,2:10] 
-
-rownames(B1data)<- c("Civil_noninst_pop","civil_labor_force", "Particip_rate", "Employed", "Emp_pop_ratio", "Unemployed","Unemp_rate", "Not_in_labor_force")
-
-B1data <- as.data.frame(t(B1data))
-
-B1data <- B1data %>% 
-    mutate(Qtrs = as.numeric(c(seq(1:9))),
-           Race = as.factor(c(rep(2,9))),
-           Class = as.factor(c(rep(5,9))))
-
-B1data[,1:8] <- lapply(B1data[,1:8], function(x) as.numeric(as.character(x)))
-```
-
-- For the Asian group
-
-``` r
-#grab sub-table for All Asians (Note: Asians were not categorized by gender and age)
-A1data <- EconNewsAll[64:71,2:10]
-
-rownames(A1data)<- c("Civil_noninst_pop","civil_labor_force","Particip_rate", "Employed","Emp_pop_ratio","Unemployed","Unemp_rate","Not_in_labor_force")
-
-A1data <- as.data.frame(t(A1data))
-
-A1data <- A1data %>% 
-    mutate(Qtrs = as.numeric(c(seq(1:9))),
-           Race = as.factor(c(rep(3,9))),
-           Class = as.factor(c(rep(9,9))))
-
-A1data[,1:8] <- lapply(A1data[,1:8], function(x) as.numeric(as.character(x)))
-```
-
-- For the Latino/Hispanic group
-
-``` r
-#grab sub-table for All Latino/Hispanic
-L1data <- EconNewsAll[73:80,2:10]
-
-rownames(L1data)<- c("Civil_noninst_pop","civil_labor_force","Particip_rate", "Employed","Emp_pop_ratio","Unemployed","Unemp_rate","Not_in_labor_force")
-
-L1data <- as.data.frame(t(L1data))
-
-L1data <- L1data %>% 
-    mutate(Qtrs = as.numeric(c(seq(1:9))),
-           Race = as.factor(c(rep(4,9))),
-           Class = as.factor(c(rep(10,9))))
-
-L1data[,1:8] <- lapply(L1data[,1:8], function(x) as.numeric(as.character(x)))
-```
 
 Combine (append) Asian, Hispanic, Black, White tables to create one table for all.
 
 ``` r
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
 WBAL1data <- dplyr:: bind_rows(W1data, B1data, A1data, L1data)
 
 WBAL1data[,10:11] <- lapply(WBAL1data[,10:11], 
 			function(x) as.factor(as.character(x)))
-
 ```
 
 **Time to plot the data!**
@@ -268,15 +192,11 @@ I selected all & saved each excel file in my local drive. Then import into R.
 - Time series data for the White group
 
 ``` r
-<<<<<<< HEAD
 WhiteAll_unemp<-as.data.frame(
-	read_excel("yourPath/fileName.xlsx", skip=12)) 
+	read_excel("yourPath/fileName.xlsx", skip=12))  
 #'skip' first 12 rows are notes...
-=======
-WhiteAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12)) #'skip' first 12 rows are notes...
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
 
-I will assign original data frame to a new data frame.
+#I will assign original data frame to a new data frame.
 WhiteAll_unempl <- WhiteAll_unemp[,-1]
 
 # make the first column to be row names like:
@@ -294,14 +214,13 @@ The above four lines of code are applied to the tables for Black, Hispanic & Asi
 - Time series data for the Black/African American group
 
 ``` r
-<<<<<<< HEAD
 BlackAll_unemp <- as.data.frame(
 	read_excel("yourPath/fileName.xlsx", skip=12))
-=======
-BlackAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12))
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
+
 BlackAll_unempl <- BlackAll_unemp[,-1]
+
 rownames(BlackAll_unempl) <- BlackAll_unemp[,1]
+
 BlackAll_unemp2 <- ts(as.vector(t(as.matrix(BlackAll_unempl))), 
            start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
@@ -309,14 +228,13 @@ BlackAll_unemp2 <- ts(as.vector(t(as.matrix(BlackAll_unempl))),
 - Time series data for the Hispanic/Latino group
 
 ``` r
-<<<<<<< HEAD
 HispanicAll_unemp<-as.data.frame(
 		read_excel("yourPath/fileName.xlsx", skip=12))
-=======
-HispanicAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12))
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
+
 HispanicAll_unempl <- HispanicAll_unemp[,-1]
+
 rownames(HispanicAll_unempl) <- HispanicAll_unemp[,1]
+
 HispanicAll_unemp2 <- ts(as.vector(t(as.matrix(HispanicAll_unempl))), 
             start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
@@ -324,14 +242,14 @@ HispanicAll_unemp2 <- ts(as.vector(t(as.matrix(HispanicAll_unempl))),
 - Time series for the Asian group
 
 ``` r
-<<<<<<< HEAD
+
 AsianAll_unemp<-as.data.frame(
 		read_excel("yourPath/fileName.xlsx", skip=12))
-=======
-AsianAll_unemp <- as.data.frame(read_excel("yourPath/fileName.xlsx", skip=12))
->>>>>>> beae1d976f700a95631d245bfbf21b61794efbb4
+
 AsianAll_unempl <- AsianAll_unemp[,-1]
+
 rownames(AsianAll_unempl) <- AsianAll_unemp[,1]
+
 AsianAll_unemp2 <- ts(as.vector(t(as.matrix(AsianAll_unempl))), 
 		start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
