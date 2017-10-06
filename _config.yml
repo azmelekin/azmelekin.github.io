@@ -7,8 +7,8 @@ permalink:        pretty
 #relative_permalinks: true
 
 # Setup
-title:            Amanuel Melekin, Ph.D.
-tagline:         what is this?
+title:            Amanuel Melekin
+#tagline:         what is this?
 description:      'Data & social systems'
 url:              http://azmelekin.github.io/
 baseurl:          /azmelekin.github.io/
