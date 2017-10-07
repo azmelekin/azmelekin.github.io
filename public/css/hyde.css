@@ -105,7 +105,7 @@ html {
   } 
   
   .sidebar-logo {  /*I made some adjustments here */
-      float:center;
+      float:left;
       padding-left: 30px;
       padding-top: 5px;
       padding-bottom: 5px;
