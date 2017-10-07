@@ -15,18 +15,16 @@ so this group is dropped from the plots in this post.
 <img src="/images/unnamed-chunk-6-1.png"/>
 <!--more-->
 Once again, unemployment rates among Black/African America men is higher than their White and Hispanic counterparts! 
-Remember the plot for Whites includes the Hispanic/Latino group who identify as 'White', so it would probably show even lower unemployment rates for 
-Caucasian Whites than indicated by the "All White" plots.
+Remember the plot for Whites includes the Hispanic/Latino group who identify as 'White', so the plot would probably show even lower unemployment rates for Caucasian Whites than indicated by the "All White" plots if the Hispanic/Latino group was removed.
 
 - **Unemployment rates by Race/Ethnicity for women**
 
 <img src="/images/plot-1.png"/> 
-Adjusted unemployment rates are similarly worse for Black/African American women which is considerably higher than unemployment rates for Whites. 
-But, Hispanic/Latino women appear to be doing better than their male counterparts.
+Adjusted unemployment rates are similarly worse for Black/African American women which is considerably higher than unemployment rates for White  & Hispanic/Latino women. 
 
 - **Unemployment rates by Race/Ethnicity & gender**
 
 Combining the two plots above provides the plot below for a quick visual comparison by race/ethnicity & gender.
 
 <img src="/images/plot1-1.png"/>
-Looking at the plot comparing race/ethnicity by gender clearly shows consistent higher unemployment rates for Black/African Americans. Latino/Hispanic males fared better than their female counterparts up until the present administration's 6th month of the first year! The disparity between female/male unemployment for Whites (again this includes All Whites), does not appear to indicate huge discrepancy.
+Looking at the plot comparing race/ethnicity by gender clearly shows consistent higher unemployment rates for Black/African Americans. Latino/Hispanic males fared better than their female counterparts until the present administration's 6th month of the first year! It increased in the months of July & August which may have to do more with policy statements. The disparity between female/male unemployment for Whites (again this includes All Whites), does not appear to indicate huge discrepancy.
