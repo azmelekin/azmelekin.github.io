@@ -54,4 +54,4 @@ You can also observe that month to month changes in unemployment are higher in t
 Despite the wide perception (& actual gains in many aspects of life for minorities) about improved experience regarding 
 better employment, wealth accumulation and health outcomes, published indicators show consistent 
 lag for minorities in general but for Blacks/African Americans in particular. Monthly unemployment rate trends over the 
-last 10 years (as provided in the plot above) show similar rize and decline for each race/ethnic group. What will the plot for the next 10 years look like?
+last 10 years (as provided in the plot above) show similar rise and decline for each race/ethnic group. What will the plot for the next 10 years look like?
