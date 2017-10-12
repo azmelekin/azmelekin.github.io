@@ -88,7 +88,7 @@ Use dplyr's bind_rows function to append the two tables & call the giant table "
 EconNewsAll <- dplyr::bind_rows(EconNews,EconNewsLat)
 
 #Have a look at the first few lines of the relevant columns.
-head(EconNewsAll[,c(1,5:)])
+head(EconNewsAll[,c(1,5:10)])
 ```
 
 Now I can subset data by race, gender and age. I also need to rename the rows.
