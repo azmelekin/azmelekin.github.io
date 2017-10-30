@@ -10,7 +10,13 @@ permalink:        pretty
 title:            Amanuel Melekin
         
 description:      'Social Systems & Data'
+<<<<<<< HEAD
 url:              http://azmelekin.github.io/
+=======
+url:              http://www.azmelekin.com/
+
+baseurl:          /azmelekin.github.io/
+>>>>>>> parent of 42ce323... domainname
 
 baseurl:          /www.azmelekin.com/
 
