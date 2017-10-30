@@ -12,12 +12,7 @@ title:            Amanuel Melekin
 description:      'Social Systems & Data'
 url:              http://www.azmelekin.com/
 
-<<<<<<< HEAD
 baseurl:          /www.azmelekin.com/
-=======
-baseurl:          /
->>>>>>> 2084b864091378c146ff758f202ce5a4b36ff6c7
-
 
 author:
     gravatar_md5:   bdc47572bf329aace9009b582c9f780e
