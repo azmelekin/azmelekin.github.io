@@ -16,7 +16,8 @@ Linked birth-death data can be obtained from CDC's WONDER services site [here](h
 
 Set working directory as the root directory (where datasets are saved) in knitr and include the relevant packages to be downloaded as follows:.
 
-``` {r setup, include=FALSE}
+``` r
+{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, invisible=TRUE)
 knitr::opts_knit$set(root.dir = 'Path/ChildMortality')
 getwd()
