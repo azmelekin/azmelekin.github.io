@@ -12,7 +12,7 @@ What drives disparities in health outcomes? Research supports the notion that so
 
 I have two objectives in this post: to plot & explore row child mortality rates at a granular level, and to explain how to use R to work on multiple files in a local directory. 
 
-Linked birth-death data can be obtained from CDC's WONDER services site [here] (https://wonder.cdc.gov/lbd-current.html). Agree to the terms and specify the type of data you want then export results as a text file. I requested datasets for 8 years (2007-2014) and saved the datasets in my local drive. [see example of a dataset for 2007 here] ({{ site.url }}/assets/data07.txt)
+Linked birth-death data can be obtained from CDC's WONDER services site [here](https://wonder.cdc.gov/lbd-current.html). Agree to the terms and specify the type of data you want then export results as a text file. I requested datasets for 8 years (2007-2014) and saved the datasets in my local drive. [see example of a dataset for 2007 here]({{ site.url }}/assets/data07.txt)
 
 Set working directory as the root directory (where datasets are saved) in knitr and include the relevant packages to be downloaded as follows:.
 
