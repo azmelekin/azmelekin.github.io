@@ -6,15 +6,25 @@ excerpt_separator: <!--more-->
 categories: Race, Mortality
 ---
 
-What drives disparities in health outcomes? Research supports the notion that socioeconomic status (SES) has a significant impact on health outcomes. How or why
+What drives disparities in health outcomes? Research supports the notion that socioeconomic status (SES) has a significant impact on health outcomes. The best (experimental) studies on the effects of social structural differences and positions of individuals within these structures are from animal studies. Overall, these studies say social hierarchy is bad (especially for those ranking lower but sometimes for those who rank higher). See work by Jay Kaplan and Robert Sapolsky among others. Such experimantal studies, of course, cannot be carried out on humans. Longitudinal data, however, is beginning to be ussed to make some inference about whys and hows of the effects of social hierarchy on humans. 
 
-Social hierarchy is bad (especially for those ranking lower but sometimes for those who rank higher). See work by Jay Kaplan and Robert Sapolsky among others.
+I have two objectives in this post: to plot and explore row child mortality data at a granular level, and to explain how to use R to work on multiple files.
 
-First we need to download and place our datasets in a directory
+Set working directory as the root directory (where datasets are saved) in knitr and include the relevant packages to be downloaded as follows:.
 
-Set working directory as the root directory (where datasets are saved) in knitr as follows (put the code below here and use highlighter for ruby) & include the packages that will be used.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, invisible=TRUE)
+knitr::opts_knit$set(root.dir = 'C:/Users/Aman/Desktop/ChildMortality')
+getwd()
 
-For this post, I wanted to look at infant mortality rates in the US. Linked birth-death data can be obtained from CDC's WONDER services site \[here\] (<https://wonder.cdc.gov/lbd-current.html>). Agree to the terms and specify the type of data you want, export results as a text file. I requested datasets for 8 years (2007-2014) and saved the datasets in my local drive. \[see example of a dataset for 2007 here\] ({{ site.url }}/assets/data07.txt)
+pkg <- c("rlist", "stringr", "ggplot2", "dplyr", 
+         "tidyr", "reshape", "reshape2")
+lapply(pkg, require, character.only = TRUE)
+```
+
+For this post, I wanted to look at infant mortality rates in the US. Linked birth-death data can be obtained from CDC's WONDER services site [here] (https://wonder.cdc.gov/lbd-current.html). Agree to the terms and specify the type of data you want then export results as a text file. I requested datasets for 8 years (2007-2014) and saved the datasets in my local drive. [see example of a dataset for 2007 here] ({{ site.url }}/assets/data07.txt)
+
+<!--more-->
 
 However there are some shortcomings with the datasets I have requested and for a general exposition of differences in death rates, I ignored those shortcomings. For instance there are several cells marked 'Unreliable' because of low numbers in those categories. Not all states have data for all race/ethnic groups due to either low numbers of race/ethnic groups in those states or lack of data collection. Because another major reason for this post was to show how to use R to work with several datasets, I feel it is alright to overlook the weaknesses of the datasets.
 
@@ -32,8 +42,6 @@ In our case, data sets are .txt files and tab delimited, we will use lapply on t
 ``` r
 datalist <- lapply(mortalityData_list, read.delim)
 ```
-
-<!--more-->
 
 DATA CLEANING 
 The "Death.Rate" column in those data sets has "(Unreliable)" in some of the cells, we need to remove it, so the code below replaces "(Unreliable)" with nothing. fixed=TRUE so '(' & ')' are removed too
@@ -98,7 +106,7 @@ childMortality_plot1 <- ggplot(data=mortalityData_long,
 childMortality_plot1
 ```
 
-![](childMortalityByRaceOverTime_files/figure-markdown_github/unnamed-chunk-6-1.png)
+<img src="/images/child_Mortality_Rates_States.png"/>
 
 But we can look at the data nationally. To do that, we quickly compute new variables as follows: Let's create 3 variables on the fly and we will use them for ggploting. This will render the "State" variable useless. (By race & by year nationally is what I'm after)
 
@@ -124,5 +132,4 @@ geom_text(aes(label=Child_Mortality_Rates), vjust=1.6, color='white',
 #Reveal new plot
 childMortality_plot2
 ```
-
-![](childMortalityByRaceOverTime_files/figure-markdown_github/unnamed-chunk-8-1.png)
+<img src="/images/child_Mortality_Rates_National.png"/>
