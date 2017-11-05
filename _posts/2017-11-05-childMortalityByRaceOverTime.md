@@ -16,7 +16,6 @@ Linked birth-death data can be obtained from CDC's WONDER services site [here](h
 
 Set working directory as the root directory (where datasets are saved) in knitr and include the relevant packages to be downloaded as follows:.
 
-
 ``` {r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, invisible=TRUE)
 knitr::opts_knit$set(root.dir = 'Path/ChildMortality')
@@ -25,7 +24,8 @@ getwd()
 pkg <- c("rlist", "stringr", "ggplot2", "dplyr", 
          "tidyr", "reshape", "reshape2")
 lapply(pkg, require, character.only = TRUE)
-```
+
+```  
 
 However there are some shortcomings with the datasets I have requested and for a general exposition of differences in death rates, I ignored those shortcomings. For instance there are several cells marked 'Unreliable' because of low numbers in those categories. Not all states have data for all race/ethnic groups due to either low numbers of race/ethnic groups in those states or lack of data collection. Because another major reason for this post was to show how to use R to work with several datasets, I feel it is alright to overlook the weaknesses of the datasets.
 
