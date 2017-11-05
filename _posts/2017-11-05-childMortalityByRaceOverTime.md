@@ -19,7 +19,7 @@ Set working directory as the root directory (where datasets are saved) in knitr 
 {% highlight ruby %}
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, invisible=TRUE)
-knitr::opts_knit$set(root.dir = 'C:/Users/Aman/Desktop/ChildMortality')
+knitr::opts_knit$set(root.dir = 'Path/ChildMortality')
 getwd()
 
 pkg <- c("rlist", "stringr", "ggplot2", "dplyr", 
@@ -31,7 +31,7 @@ lapply(pkg, require, character.only = TRUE)
 However there are some shortcomings with the datasets I have requested and for a general exposition of differences in death rates, I ignored those shortcomings. For instance there are several cells marked 'Unreliable' because of low numbers in those categories. Not all states have data for all race/ethnic groups due to either low numbers of race/ethnic groups in those states or lack of data collection. Because another major reason for this post was to show how to use R to work with several datasets, I feel it is alright to overlook the weaknesses of the datasets.
 
 ``` r
-#Make a list that contains your data sets & provide the right path
+#Make a list that contains your datasets & provide the right path
 #You can use getwd() or provide complete path
 mortalityData_list <- list.files(path=getwd(), pattern="*.txt", 
                        full.names = TRUE)
@@ -39,7 +39,7 @@ mortalityData_list <- list.files(path=getwd(), pattern="*.txt",
 
 The lapply, sapply, tapply... family of functions are very handy in performing the same thing to lists, vectors, variables or datasets etc.
 
-In our case, data sets are .txt files and tab delimited, we will use lapply on the data list created to read in each of them. The 'datalist' object will contain those datasets as a list.
+In our case, datasets are .txt files and tab delimited, we will use lapply on the data list created to read in each of them. The 'datalist' object will contain those datasets as a list.
 
 ``` r
 datalist <- lapply(mortalityData_list, read.delim)
@@ -47,7 +47,7 @@ datalist <- lapply(mortalityData_list, read.delim)
 You can do typeof(datalist) to confirm that.
 
 **DATA CLEANING**  
-The _"Death.Rate"_ column in those data sets has "__(Unreliable)__" in some of the cells, we need to remove it, so the code below replaces "**(Unreliable)**" with nothing. Include **fixed=TRUE** so '(' & ')' are removed too
+The _"Death.Rate"_ column in those datasets has "__(Unreliable)__" in some of the cells, we need to remove it, so the code below replaces "**(Unreliable)**" with nothing. Include **fixed=TRUE** so '(' & ')' are removed too.
 
 ``` r
 mortalityData <- lapply(datalist, function(i)
@@ -78,7 +78,7 @@ for( i in seq_along(mortalityData)){
 }
 ```
 
-Combine data frames to one long form if you like but one can also operate on each of the datasets without row-binding
+Combine data frames to one long form if you like but one can also operate on each of the datasets without row-binding.
 
 ``` r
 mortalityData_long <- as.data.frame(do.call("rbind", mortalityData))
@@ -94,7 +94,7 @@ mortalityData_long[,8] <- as.factor(mortalityData_long$year) #Just so all the ye
 ```
 
 #### Plots  
-First, let's just plot that data as it is for each year. This only gives a general idea of the trends across states and years by race. Where data are available, it looks like minorities (other than Hispanic/Latino who identify as White) experience higher death rates. I should note here that in several states data for American Indian/Alaska Native and Asian/Pacific Islander are not available. In some
+First, let's just plot that data as it is for each year. This only gives a general idea of the trends across states and years by race. Where data are available, it looks like minorities (other than Hispanic/Latino who identify as White) experience higher death rates. I should note here that in several states data for American Indian/Alaska Native and Asian/Pacific Islander are not available. Where they are available, it appears that they have higher mortality rates.
 
 ``` r
 #Plots
@@ -109,7 +109,7 @@ childMortality_plot1
 ```
 <img src="/images/child_Mortality_Rates_States.png"/>
 
-But we can look at the data nationally. To do that, we quickly compute new variables as follows: Let's create 3 variables on the fly and use them in ggplot-ing. This will render the "State" variable useless. (Rates by race & by year nationally is what I'm after)
+But we can look at the data nationally. To do that, we quickly compute new variables as follows: Let's create 3 variables on the fly and use them in ggplot-ing. This will render the "State" variable useless. (Rates by race & by year nationally is what I'm after).
 
 ``` r
 #using the 'pipe' %>% operator
