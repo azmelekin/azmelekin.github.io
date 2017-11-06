@@ -3,7 +3,7 @@ layout: post
 title:  "Child Mortality Rates by Race (US)"
 date:   2017-11-05
 excerpt_separator: <!--more-->
-categories: Race, Mortality
+categories: Race, Mortality, R markdown
 ---
 
 What drives disparities in health outcomes? Research supports the notion that socioeconomic status (SES) has a significant impact on health outcomes. The best (experimental/observational) studies on the effects of social structural differences and positions of individuals within these structures are from animal studies. Overall, these studies say social hierarchy is bad (especially for those ranking lower but sometimes for those who rank higher when the stability of their status is uncertain). See work by [Jay Kaplan](http://neuroscience.graduate.wfu.edu/people/jay-kaplan/) and [Robert Sapolsky](https://profiles.stanford.edu/robert-sapolsky) among others. Such experimantal studies, of course, cannot be carried out on humans. Longitudinal data, however, are beginning to be used to make some inference about the whys and hows of the effects of social hierarchy on human health. 
@@ -14,7 +14,7 @@ I have two objectives in this post: to plot & explore child mortality rates at a
 
 Linked birth-death data can be obtained from CDC's WONDER services site [here](https://wonder.cdc.gov/lbd-current.html). Agree to the terms and specify the type of data you want then export/save results as a text file. I requested datasets for 8 years (2007-2014) and saved the datasets in my local drive. [see example of a dataset for 2007 here]({{ site.url }}/assets/data07.txt)
 
-Set working directory as the root directory (where datasets are saved) in knitr and include the relevant packages to be downloaded as follows:
+Set working directory as the root directory (where datasets are saved) in knitr and include the relevant packages to be loaded as follows:
 
 ``` r
 {r setup, include=FALSE}
@@ -112,7 +112,7 @@ childMortality_plot1
 <img src="/images/child_Mortality_Rates_States.png"/>
 
 But we can look at the data nationally. To do that, we quickly compute new variables as follows:  
-Let's create 3 variables on the fly and use them in ggplot-ing. These steps will render the "State" variable useless. (Rates by race & by year nationally is what I'm after).
+Let's create 3 variables on the fly and use them in ggplot-ing. These steps will render the "State" variable useless. (rates by race & by year nationally is what I'm after).
 
 ``` r
 #using the 'pipe' %>% operator
@@ -120,9 +120,9 @@ mortalityData_long <- mortalityData_long %>% group_by(year, Race) %>%
   mutate(tot_Deaths = sum(Deaths), tot_Births=sum(Births), 
          Child_Mortality_Rates=(round(tot_Deaths/tot_Births*1000, 1)))
 ```
-I just created total births and deaths for each state, then used these to compute death rates. This is a very rough, high-level view of national trends. Remember that data for all races in all the states are not available. The White group is missing data only for 2011 for the District of Columbia (if you look closely at the plot above, you will see one line (for Blacks) going all the way down --there is no data for Whites in that year in D.C. 
+I just created total births and deaths for each state, then used these to compute death rates. This is a very rough, high-level view of national trends. Remember that data for all races in all the states are not available. The White group is missing data only for 2011 for the District of Columbia (if you look closely at the plot above, you will see one line (for Blacks) going all the way down --there is no data for Whites in that year in D.C.) 
 
-Now we have what we need to plot an approximate estimate of national child mortalit by race and by year.
+Now we have what we need to plot an approximate estimate of national child mortality rates by race and by year.
 
 ``` r
 #New Plot (childMortality_plot2)
@@ -138,4 +138,4 @@ childMortality_plot2
 ```
 <img src="/images/child_Mortality_Rates_National.png"/>
 
-The new plot clearly shows higher child mortality rates for Amrican Indian/Alaska Natives & Black/African American. Asian/Pacific Islander has the lowest. Mortality rates for Caucasian Whites are probably higher than mortality rates for Hispanic/Latinos. The bars for the White group includes Hispanic/Latino ethnicity that identify as White and there are some indications that child mortality rates are lower for Hispanics/Latinos.
+The new plot clearly shows higher child mortality rates for Amrican Indian/Alaska Natives & Black/African Americans. Asian/Pacific Islanders have the lowest mortality rates. Mortality rates for Caucasian Whites are probably higher than mortality rates for Hispanics/Latinos. The bars for the White group include Hispanic/Latino ethnicity that identify as White and there are some indications that child mortality rates are lower for Hispanics/Latinos.
