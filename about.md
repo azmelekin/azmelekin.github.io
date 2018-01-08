@@ -12,7 +12,7 @@ My interests are wide & include:
 
 to study group differences emerging from varoius systems and mechanisms driving the emergence of such differences.  
 
-I am also interested in Systems Philosophy as a disciple of 
+I am also interested in Systems Philosophy, always inspired by 
 [Dr. Martin Zwick](https://www.pdx.edu/sysc/faculty-martin-zwick) (Portland State University).
 
 
