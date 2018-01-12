@@ -171,7 +171,7 @@ The above plot was for 6 time points within a year, now I will look at 10 years'
 
 **Time Series Data**
 
-A Time Series data of Unemployment Rates by Race/ethnicity (2007 - 2017) are available in excel format for various groups in the BLS website [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm). I saved each of the seasonally adjusted unemploymnet rates data files in my local drive. Next, I imported the datasets in R as below, processed and plotted as below.
+A Time Series data of Unemployment Rates by Race/ethnicity (2007 - 2017) are available in excel format for various groups in the BLS website [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm). I saved each of the seasonally adjusted unemploymnet rates data files in my local drive. Next, I imported the datasets in R, processed and plotted as below.
 
 - Time series data for the White group
 
