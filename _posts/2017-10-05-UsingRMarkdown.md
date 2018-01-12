@@ -81,7 +81,6 @@ colnames(EconNewsLat)[1] <- ""
 colnames(EconNews)[1] <- ""
 ```
 
-- append the two tables  
 Use dplyr's bind_rows function to append the two tables & call the giant table "EconNewsAll"
 
 ``` r
