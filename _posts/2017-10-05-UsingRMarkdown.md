@@ -13,7 +13,7 @@ I will first setup the R environment and load some of the packages that will be 
 The good thing in using R Markdown is creating code in chunks for clarity and ease of debugging. 
 [Table 2](https://www.bls.gov/news.release/empsit.t02.htm) & [Table 3](https://www.bls.gov/news.release/empsit.t03.htm) of the _Economic News Release_ contain
 the relevant general labor force data including employment/unemployment rates for various groups. 
-Note: Monthly data changes in those tables. At the time of this writing, the tables had data for Aug 2016 - Aug 2017 period.
+**Note that** Monthly data change in those tables. At the time of this writing, the tables had data for Aug 2016 - Aug 2017 period.
 I extracted and plotted unemployment rate data by race/ethnicity and by gender. 
 
 Code chunks in R Markdown begin & end with ```
@@ -40,11 +40,11 @@ EconNews <- as.data.frame(readHTMLTable(
         stringsAsFactors=FALSE, trim = TRUE))
 
 #see what the first few lines of the data look like. We also need to assign appropriate columns and rows later.
-head(EconNews[,c(1,5:10)]) 
- #looking at first few rows, first column & columns 5-10. columns 2-4 are unadjusted data.
+head(EconNews[,c(1,5:10)])  
+#looking at the first few rows of first column & columns 5-10. columns 2-4 are unadjusted data.
 ```
 
-Some more data cleaning & adjustment: remove "," from the data so we can coveniently convert from one to another form of number types.
+Some more data cleaning & adjustment: remove "," from the data so we can coveniently convert from one to another form of data types.
 
 ``` r
 EconNews[] <- lapply(EconNews, gsub, pattern=',', replacement='')
@@ -61,7 +61,6 @@ names(EconNews)[2:10] <- colName
 - Scraping the data for Latino/Hispanic group.
 
 Essentially, the code for this is the same as above but need to point to the appropriate url & name the data frame.
-Scraping the table for Latino/Hispanic group.
 
 ``` r
 EconNewsLat <- as.data.frame(readHTMLTable(
@@ -126,9 +125,7 @@ W1data[,1:8] <- lapply(W1data[,1:8],
 All other data manipulation activities for the other race/ethnic groups similar to the one for the White group above, so I will not elaborate further. Just remember to change data frame names, select/assign appropriate rows & classes. 
 
 I have obtained sub-tables for Black/African American as 'B1data', for Hispanic/Latino as 'L1data', & for Asian as 'A1data'.
-So, I will combine the four tables with the following code:
-
-Combine (append) Asian, Hispanic, Black, White tables to create one table for all.
+So, I will combine (append) the four tables with the following code to obtain one table for all race/ethnic groups:
 
 ``` r
 WBAL1data <- dplyr:: bind_rows(W1data, B1data, A1data, L1data)
@@ -168,16 +165,14 @@ All_plot <- ggplot(data=WBAL1data[c(4:9,13:18,22:27,31:36),],
 #reveal the plot
 All_plot
 ```
-<img src="/images/All_plot-1.png"/>
-
+<img src="/images/All_plot-1.png"/>  
 
 The above plot was for 6 time points within a year, now I will look at 10 years' monthly data. 
 
 **Time Series Data**
 
-A Time Series Plot of Unemployment Rates by Race/ethnicity (2007 - 2017)
-data are available in excel for various groups in bls website [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm) 
-I selected all & saved each of seasonally adjusted unemploymnet rates excel file data set in my local drive. Then imported it in R as below.
+A Time Series data of Unemployment Rates by Race/ethnicity (2007 - 2017) are available in excel format for various groups in the BLS website [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm) 
+I selected all & saved each of the seasonally adjusted unemploymnet rates excel file data sets in my local drive. Import datasets in R as below and prepare for plotting.
 
 - Time series data for the White group
 
@@ -269,7 +264,7 @@ abline(h=3:17, v=2007:2017, col="cornsilk2", lty=3)
 
 <img src="/images/TimeSereisZoo.png"/>
 
-Alternatively, you can use ggplot, but first we need few more steps to prepare the data.
+Alternatively, we can use ggplot, but first we need few more steps to prepare the data.
 ``` r
 #prepare data in a format ggplot2 likes
 ts_All_race <- (cbind(WhiteAll_unemp2, BlackAll_unemp2, 
@@ -282,7 +277,7 @@ df_all_race <- rename(df_all_race, Year=Index,
 			unemployment_rate=Value, Race=Series)
 ```
 
-Plot the time series (can reduce some of the specifications below)
+Plot the time series (one can reduce some of the specifications below)
 
 ``` r
 ggplot(data=df_all_race, aes(x=Year, y=unemployment_rate, 
