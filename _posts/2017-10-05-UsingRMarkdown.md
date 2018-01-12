@@ -40,7 +40,8 @@ EconNews <- as.data.frame(readHTMLTable(
         stringsAsFactors=FALSE, trim = TRUE))
 
 #see what the first few lines of the data look like. We also need to assign appropriate columns and rows later.
-head(EconNews[,c(1,5:10)])  
+head(EconNews[,c(1,5:10)])
+
 #looking at the first few rows of first column & columns 5-10. columns 2-4 are unadjusted data.
 ```
 
@@ -80,7 +81,7 @@ colnames(EconNewsLat)[1] <- ""
 colnames(EconNews)[1] <- ""
 ```
 
-- append the two tables
+- append the two tables  
 Use dplyr's bind_rows function to append the two tables & call the giant table "EconNewsAll"
 
 ``` r
@@ -92,7 +93,7 @@ head(EconNewsAll[,c(1,5:10)])
 
 Now I can subset data by race, gender and age. I also need to rename the rows.
 
-- For the White group
+- Subset data for the White group
 
 ``` r
 #grab sub-table for all White group as "W1data"
