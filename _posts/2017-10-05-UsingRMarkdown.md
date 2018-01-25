@@ -6,12 +6,14 @@ excerpt_separator: <!--more-->
 categories: Unemployment
 ---
 
-In the previous two posts, there were several plots and I indicated that I used R to scrape html tables from the [Bureau of Labor Statistics](https://www.bls.gov/bls/newsrels.htm) website.
+In the previous two posts, there were several plots and I indicated that I used R to scrape html tables 
+from the [Bureau of Labor Statistics](https://www.bls.gov/bls/newsrels.htm) website.
 This post provides a quick tutorial on how I obtained and plotted the data using R (& various packages).
 
 I will first setup the R environment and load some of the packages that will be used.
 The good thing in using R Markdown is creating code in chunks for clarity and ease of debugging. 
-[Table 2](https://www.bls.gov/news.release/empsit.t02.htm) & [Table 3](https://www.bls.gov/news.release/empsit.t03.htm) of the _Economic News Release_ contain
+[Table 2](https://www.bls.gov/news.release/empsit.t02.htm) & [Table 3](https://www.bls.gov/news.release/empsit.t03.htm) 
+of the _Economic News Release_ contain
 the relevant general labor force data including employment/unemployment rates for various groups. 
 **Note that** Monthly data change in those tables. At the time of this writing, the tables had data for Aug 2016 - Aug 2017 period.
 I extracted and plotted unemployment rate data by race/ethnicity and by gender. 
@@ -45,7 +47,7 @@ head(EconNews[,c(1,5:10)])
 #looking at the first few rows of first column & columns 5-10. columns 2-4 are unadjusted data.
 ```
 
-Some more data cleaning & adjustment: remove "," from the data so we can coveniently convert from one to another form of data types.
+Some more data cleaning & adjustment: remove "," from the data so we can conveniently convert from one to another form of data types.
 
 ``` r
 EconNews[] <- lapply(EconNews, gsub, pattern=',', replacement='')
@@ -59,7 +61,7 @@ colName <- c("Aug2016", "Jul2017", "Aug2017", "Aug2016a", "Apr2017a",
 names(EconNews)[2:10] <- colName
 ```
 
-- Scraping the data for Latino/Hispanic group.
+- Scraping the data for Latino/Hispanic group
 
 Essentially, the code for this is the same as above but need to point to the appropriate url & name the data frame.
 
@@ -122,7 +124,8 @@ W1data[,1:8] <- lapply(W1data[,1:8],
 			function(x) as.numeric(as.character(x)))
 ```
 
-All other data manipulation activities for the other race/ethnic groups similar to the one for the White group above, so I will not elaborate further. Just remember to change data frame names, select/assign appropriate rows & classes. 
+All other data manipulation activities for the other race/ethnic groups similar to the one for the White group above, so 
+I will not elaborate further. Just remember to change data frame names, select/assign appropriate rows & classes. 
 
 I have obtained sub-tables for Black/African American as 'B1data', for Hispanic/Latino as 'L1data', & for Asian as 'A1data'.
 So, I will combine (append) the four tables with the following code to obtain one table for all race/ethnic groups:
@@ -171,19 +174,21 @@ The above plot was for 6 time points within a year, now I will look at 10 years'
 
 **Time Series Data**
 
-A Time Series data of Unemployment Rates by Race/ethnicity (2007 - 2017) are available in excel format for various groups in the BLS website [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm). I saved each of the seasonally adjusted unemploymnet rates data files in my local drive. Next, I imported the datasets in R, processed and plotted as below.
+A Time Series data of Unemployment Rates by Race/ethnicity (2007 - 2017) are available in excel format for various 
+groups in the BLS website [here](https://www.bls.gov/webapps/legacy/cpsatab2.htm). I saved each of the seasonally 
+adjusted unemployment rates data files in my local drive. Next, I imported the datasets in R, processed and plotted as below.
 
 - Time series data for the White group
 
 ``` r
 WhiteAll_unemp <- as.data.frame(
 	read_excel("yourPath/fileName.xlsx", skip=12))  
-#'skip' first 12 rows are notes...
+#'skip' first 12 rows because they are notes
 
-#I will assign original data frame to a new data frame.
+#I will assign original data frame to a new data frame & drop the first column
 WhiteAll_unempl <- WhiteAll_unemp[,-1]
 
-# make the first column to be row names like:
+# (re-assign) make the first column from the previous dataset to be row names like:
 rownames(WhiteAll_unempl) <- WhiteAll_unemp[,1]
 
 #create & convert to time series. 
@@ -193,7 +198,7 @@ WhiteAll_unemp2 <- ts(as.vector(t(as.matrix(WhiteAll_unempl))),
 		start = c(2007, 1), end=c(2017, 12), frequency=12)
 ```
 
-The above four lines of code are applied to the tables for Black, Hispanic & Asian groups below (just specify appropriate path/fileName & change data frame names.
+The above four lines of code are applied to the tables for Black, Hispanic & Asian groups below (just specify appropriate path/fileName & change data frame names).
 
 - Time series data for the Black/African American group
 
