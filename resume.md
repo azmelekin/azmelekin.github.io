@@ -3,4 +3,4 @@ layout: page
 title: Resume
 ---
 
-<!---[download pdf]({{ site.url }}/assets/resume.pdf)--->
+<!--[download pdf]({{ site.url }}/assets/resume.pdf)-->
